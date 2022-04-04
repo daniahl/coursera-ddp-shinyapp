@@ -1,0 +1,38 @@
+---
+title: "DiceSim - Beat Statistics"
+author: "Daniel"
+date: "`r Sys.Date()`"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Overview
+Dice rolls can be trickier than they seem!
+
+When you roll a bunch of dice, you might first think that any sequence you get is equally likely. After all, each roll is independent and with a probability of 1/6.
+
+But, say you roll two dice, there are 36 possibilities, one of which is (6, 6).
+But, for example, getting a five and a six can occur in two ways: (5, 6) or (6, 5).
+
+For a fair die we expect the average distribution to be even. DiceSim lets you roll dice and see how likely your result is, how uneven your distribution is.
+
+## How to Use
+* The instructions are in the app. Just select the amount of dice and then click roll, and observe the result!
+
+## Example (1)
+
+Say we roll 10,000 dice and check a histogram. It's fairly even, and it would be difficult to get say, all sixes.
+```{r, echo = TRUE}
+result = sample(1:6,10000,replace=T)
+barplot(table(result), xlab="Number", ylab="Frequency")
+```
+
+## Example (2)
+Now say we roll 100 dice. This is a smaller sample, so it's "easier" to get an uneven distribution.
+```{r, echo = TRUE}
+result = sample(1:6,100,replace=T)
+barplot(table(result), xlab="Number", ylab="Frequency")
+```
